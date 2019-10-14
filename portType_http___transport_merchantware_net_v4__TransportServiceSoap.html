@@ -1,0 +1,571 @@
+<html>
+<head>
+<meta http-equiv='content-type' content='text/html; charset=utf-8'>
+<title>Port type: TransportServiceSoap</title>
+<link rel='stylesheet' href='prowsdldoc.css' type='text/css'/>
+<script type='text/javascript'>
+function expandDiv(divID)
+{ document.getElementById(divID).style.display = 'inline'; }
+
+function collapseDiv(divID)
+{ document.getElementById(divID).style.display = 'none'; }
+</script>
+</head>
+<body>
+<a name='Top'></a><p class='linkMenu'><a href='service_http___transport_merchantware_net_v4__TransportService.html'>Service</a> | <a href='DataTypes.html'>Data types</a> | <a href='OperationIndex.html'>Operation index</a></p>
+<h1>Port type (persistent procedure)</h1>
+
+<h2>TransportServiceSoap</h2>
+
+<dl>
+  <dd>
+    <p><i>No documentation found in WSDL.</i></p>
+  </dd>
+</dl>
+<h2>Summary</h2>
+
+<dl>
+  <dd>
+    <h3>Connection information</h3>
+
+    <p>The following connection parameters must be specified to use the operations described below. See the <a href='#ConnectionDetails'>Connection Details</a> topic below.</p>
+
+    <div class='boxedText'>
+      <pre>-WSDL 'https://transport.merchantware.net/v4/transportService.asmx?wsdl'
+-Port <span class='exampleName'>port-name</span>
+</pre>
+    </div>
+
+    <h3>Operations (internal procedures)</h3>
+
+   <p><b>NOTE:</b> Some of the procedures documented below were documented differently in the 10.0 releases of OpenEdge. If you are maintaining web service clients written for release 10.0, or are deploying web service clients in a mixed 10.0/post-10.0 installation, re-execute this utility with the <tt>-show100style</tt> option.</p>
+    <table border='1' cellpadding='3' cellspacing='0'>
+      <tbody>
+      <tr>
+        <td>
+          <pre>PROCEDURE <a href='#CreateTransaction'>CreateTransaction</a>:
+  DEFINE INPUT PARAMETER merchantName AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER merchantSiteId AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER merchantKey AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER DATASET FOR requestDset.
+  DEFINE OUTPUT PARAMETER DATASET FOR CreateTransactionResultDset.
+END PROCEDURE.</pre>
+        </td>
+        <td>Establishes a single-use transaction for Transport Web and Transport Mobile</td>
+      </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<h2><a name='ConnectionDetails'></a>Connection details</h2>
+
+<dl>
+  <dd>
+    <h3>Connection parameters</h3>
+
+    <div class='boxedText'>
+      <pre>-WSDL 'https://transport.merchantware.net/v4/transportService.asmx?wsdl'
+<span class='bnf-markup'>[</span> -WSDLUserId <span class='exampleName'>user-id</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -WSDLPassword <span class='exampleName'>password</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span>
+  -Service TransportService
+  <span class='bnf-markup'>[</span> -ServiceNamespace http://transport.merchantware.net/v4/ <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>]</span>
+-Port <span class='exampleName'>port-name</span>
+<span class='bnf-markup'>[</span> -SOAPEndpointUserId <span class='exampleName'>user-id</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -SOAPEndpointPassword <span class='exampleName'>password</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -TargetNamespace http://transport.merchantware.net/v4/ <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -MaxConnections <span class='exampleName'>max-connections</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -pf <span class='exampleName'>filename</span> <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -nohostverify <span class='bnf-markup'>]</span>
+<span class='bnf-markup'>[</span> -nosessionreuse <span class='bnf-markup'>]</span></pre>
+    </div>
+    <h4>-Service and -Port descriptions</h4>
+    <p>The following service name may be used for the -Service connection parameter.</p>
+    <table border='1' cellpadding='3' cellspacing='0'>
+      <thead><tr><th style='text-align: left'>Service</th><th style='text-align: left'>Description</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><tt>TransportService</tt></td>
+          <td>
+            <p>Provides a service interface to create new requests for Transport Web and Transport Mobile</p>
+            <p>The following port names may be used for the -Port connection parameter, when using the <tt>TransportService</tt> service.</p>
+                <table border='1' cellpadding='3' cellspacing='0'>
+                  <thead><tr><th>Port</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr>
+                    <td><tt>TransportServiceSoap</tt></td>
+                    <td><i>No documentation found in WSDL.</i></td>
+                    </tr>
+                    <tr>
+                    <td><tt>TransportServiceSoap12</tt></td>
+                    <td><i>No documentation found in WSDL.</i></td>
+                    </tr>
+                  </tbody>
+                </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Example</h3>
+
+    <p>This example shows the steps needed to prepare for calling one of the operations described below.</p>
+    <div class='boxedText'>
+      <pre>DEFINE VARIABLE hWebService AS HANDLE NO-UNDO.
+DEFINE VARIABLE hTransportServiceSoap AS HANDLE NO-UNDO.
+
+
+CREATE SERVER hWebService.
+
+
+hWebService:CONNECT("-WSDL 'https://transport.merchantware.net/v4/transportService.asmx?wsdl'
+                     -Port <span class='exampleName'>port-name</span>").
+
+RUN TransportServiceSoap SET hTransportServiceSoap ON hWebService.</pre>
+    </div>
+  </dd>
+</dl>
+<h2>Operation (internal procedure) detail</h2>
+
+<dl>
+  <dd>
+<a name='CreateTransaction'></a><p class='linkMenu'><a href='#top'>Top</a> | <a href='service_http___transport_merchantware_net_v4__TransportService.html'>Service</a> | <a href='DataTypes.html'>Data types</a> | <a href='OperationIndex.html'>Operation index</a></p>
+        <h3>CreateTransaction</h3>
+        <dl>
+          <dd>
+            <p>Establishes a single-use transaction for Transport Web and Transport Mobile</p>
+            <h4>Procedure prototype</h4>
+            <div class='boxedText'>
+          <pre>PROCEDURE CreateTransaction:
+  DEFINE INPUT PARAMETER merchantName AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER merchantSiteId AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER merchantKey AS CHARACTER NO-UNDO.
+  DEFINE INPUT PARAMETER DATASET FOR requestDset.
+  DEFINE OUTPUT PARAMETER DATASET FOR CreateTransactionResultDset.
+END PROCEDURE.</pre>
+          </div>
+        <h4>Example</h4>
+        <div class='boxedText'>
+          <pre>DEFINE VARIABLE merchantName AS CHARACTER NO-UNDO.
+DEFINE VARIABLE merchantSiteId AS CHARACTER NO-UNDO.
+DEFINE VARIABLE merchantKey AS CHARACTER NO-UNDO.
+
+DEFINE TEMP-TABLE request NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD TransactionType AS CHARACTER 
+	FIELD Amount AS DECIMAL 
+	FIELD ClerkId AS CHARACTER 
+	FIELD OrderNumber AS CHARACTER 
+	FIELD Dba AS CHARACTER 
+	FIELD SoftwareName AS CHARACTER 
+	FIELD SoftwareVersion AS CHARACTER 
+	FIELD AddressLine1 AS CHARACTER 
+	FIELD Zip AS CHARACTER 
+	FIELD Cardholder AS CHARACTER 
+	FIELD LogoLocation AS CHARACTER 
+	FIELD RedirectLocation AS CHARACTER 
+	FIELD TransactionId AS CHARACTER 
+	FIELD ForceDuplicate AS LOGICAL 
+	FIELD CustomerCode AS CHARACTER 
+	FIELD PoNumber AS CHARACTER 
+	FIELD TaxAmount AS DECIMAL 
+	FIELD EntryMode AS CHARACTER 
+	FIELD AuthorizationCode AS CHARACTER 
+	FIELD TerminalId AS CHARACTER 
+	FIELD EnablePartialAuthorization AS LOGICAL .
+
+DEFINE TEMP-TABLE DisplayColors NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD ScreenBackgroundColor AS CHARACTER 
+	FIELD ContainerBackgroundColor AS CHARACTER 
+	FIELD ContainerFontColor AS CHARACTER 
+	FIELD ContainerHelpFontColor AS CHARACTER 
+	FIELD ContainerBorderColor AS CHARACTER 
+	FIELD LogoBackgroundColor AS CHARACTER 
+	FIELD LogoBorderColor AS CHARACTER 
+	FIELD TooltipBackgroundColor AS CHARACTER 
+	FIELD TooltipBorderColor AS CHARACTER 
+	FIELD TooltipFontColor AS CHARACTER 
+	FIELD TextboxBackgroundColor AS CHARACTER 
+	FIELD TextboxBorderColor AS CHARACTER 
+	FIELD TextboxFocusBackgroundColor AS CHARACTER 
+	FIELD TextboxFocusBorderColor AS CHARACTER 
+	FIELD TextboxFontColor AS CHARACTER 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE DisplayOptions NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD AlignLeft AS LOGICAL 
+	FIELD NoCardNumberMask AS LOGICAL 
+	FIELD HideDetails AS LOGICAL 
+	FIELD HideDowngradeMessage AS LOGICAL 
+	FIELD HideMessage AS LOGICAL 
+	FIELD HideTooltips AS LOGICAL 
+	FIELD UseNativeButtons AS LOGICAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE HealthCareAmountDetails NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD CopayAmount AS DECIMAL 
+	FIELD ClinicalAmount AS DECIMAL 
+	FIELD DentalAmount AS DECIMAL 
+	FIELD HealthCareTotalAmount AS DECIMAL 
+	FIELD PrescriptionAmount AS DECIMAL 
+	FIELD VisionAmount AS DECIMAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE LoyaltyAmountDetails NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD EligibleAmount AS DECIMAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE TipDetails NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD EligibleAmount AS DECIMAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE Invoice NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD TaxIndicator AS CHARACTER 
+	FIELD ProductDescription AS CHARACTER 
+	FIELD DiscountAmount AS DECIMAL 
+	FIELD ShippingAmount AS DECIMAL 
+	FIELD DutyAmount AS DECIMAL 
+	FIELD DestinationPostalCode AS CHARACTER 
+	FIELD DestinationCountryCode AS CHARACTER 
+	FIELD ShipFromPostalCode AS CHARACTER 
+	FIELD AlternateTaxAmount AS DECIMAL 
+	FIELD AlternateTaxRate AS DECIMAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE LineItems NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD Invoice_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE LineItem NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD CommodityCode AS CHARACTER 
+	FIELD Description AS CHARACTER 
+	FIELD Upc AS CHARACTER 
+	FIELD Quantity AS DECIMAL 
+	FIELD UnitOfMeasure AS CHARACTER 
+	FIELD UnitCost AS DECIMAL 
+	FIELD DiscountAmount AS DECIMAL 
+	FIELD TotalAmount AS DECIMAL 
+	FIELD TaxAmount AS DECIMAL 
+	FIELD ExtendedAmount AS DECIMAL 
+	FIELD DebitOrCreditIndicator AS CHARACTER 
+	FIELD NetOrGrossIndicator AS CHARACTER 
+	FIELD LineItems_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE EbtAmountDetails NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD SnapAmount AS DECIMAL 
+	FIELD SnapTaxAmount AS DECIMAL 
+	FIELD request_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE DATASET requestDset NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	XML-NODE-TYPE "HIDDEN" 
+	FOR request, DisplayColors, DisplayOptions, HealthCareAmountDetails, LoyaltyAmountDetails, TipDetails, Invoice, LineItems, LineItem, EbtAmountDetails
+	PARENT-ID-RELATION RELATION1 FOR request, DisplayColors
+		PARENT-ID-FIELD request_id
+		PARENT-FIELDS-BEFORE (TransactionType,Amount,ClerkId,OrderNumber,Dba,SoftwareName,SoftwareVersion,AddressLine1,Zip,Cardholder,LogoLocation,RedirectLocation,TransactionId,ForceDuplicate,CustomerCode,PoNumber,TaxAmount)
+	PARENT-ID-RELATION RELATION2 FOR request, DisplayOptions
+		PARENT-ID-FIELD request_id
+		PARENT-FIELDS-AFTER (EntryMode,AuthorizationCode,TerminalId)
+	PARENT-ID-RELATION RELATION3 FOR request, HealthCareAmountDetails
+		PARENT-ID-FIELD request_id
+		PARENT-FIELDS-AFTER (EnablePartialAuthorization)
+	PARENT-ID-RELATION RELATION4 FOR request, LoyaltyAmountDetails
+		PARENT-ID-FIELD request_id
+	PARENT-ID-RELATION RELATION5 FOR request, TipDetails
+		PARENT-ID-FIELD request_id
+	PARENT-ID-RELATION RELATION6 FOR LineItems, LineItem
+		PARENT-ID-FIELD LineItems_id
+	PARENT-ID-RELATION RELATION7 FOR Invoice, LineItems
+		PARENT-ID-FIELD Invoice_id
+	PARENT-ID-RELATION RELATION8 FOR request, Invoice
+		PARENT-ID-FIELD request_id
+	PARENT-ID-RELATION RELATION9 FOR request, EbtAmountDetails
+		PARENT-ID-FIELD request_id.
+
+DEFINE TEMP-TABLE CreateTransactionResult NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD TransportKey AS CHARACTER 
+	FIELD ValidationKey AS CHARACTER .
+
+DEFINE TEMP-TABLE Messages NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	FIELD CreateTransactionResult_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE TEMP-TABLE Message1 NO-UNDO
+	NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	XML-NODE-NAME "Message" 
+	FIELD Field1 AS CHARACTER 
+		XML-NODE-NAME "Field" 
+	FIELD Information AS CHARACTER 
+	FIELD Messages_id AS RECID 
+		XML-NODE-TYPE "HIDDEN" .
+
+DEFINE DATASET CreateTransactionResultDset NAMESPACE-URI "http://transport.merchantware.net/v4/" 
+	XML-NODE-TYPE "HIDDEN" 
+	FOR CreateTransactionResult, Messages, Message1
+	PARENT-ID-RELATION RELATION1 FOR Messages, Message1
+		PARENT-ID-FIELD Messages_id
+	PARENT-ID-RELATION RELATION2 FOR CreateTransactionResult, Messages
+		PARENT-ID-FIELD CreateTransactionResult_id.
+
+
+RUN CreateTransaction IN hTransportServiceSoap(INPUT merchantName, INPUT merchantSiteId, INPUT merchantKey, INPUT DATASET requestDset, OUTPUT DATASET CreateTransactionResultDset).
+</pre>
+        </div>
+        <h4>Parameters</h4>
+        <dl>
+          <dt><p><tt>merchantName</tt></p></dt>
+          <dd>
+          <p>This value is defined as an XML Schema string value.</p>
+        </dd>
+          <dt><p><tt>merchantSiteId</tt></p></dt>
+          <dd>
+          <p>This value is defined as an XML Schema string value.</p>
+        </dd>
+          <dt><p><tt>merchantKey</tt></p></dt>
+          <dd>
+          <p>This value is defined as an XML Schema string value.</p>
+        </dd>
+          <dt><p><tt>requestDset</tt></p></dt>
+          <dd>
+<p>This value is defined as a DATASET.</p>
+          <p>This value can also be expressed as a <a href='DataTypes.html#http%3A%2F%2Ftransport.merchantware.net%2Fv4%2F%3Arequest_element'>request</a> element in the http://transport.merchantware.net/v4/ namespace. <a href='javascript:expandDiv("example_0")'>View example</a>.</p>
+          <div id='example_0' style='display: none;'>
+        <h4>Example <span style='font-weight: normal'>(<a href='javascript:collapseDiv("example_0")'>hide</a>)</span></h4>
+        <div class='boxedText'>
+          <pre>
+&lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+&lt;ns0:request xmlns:ns0="http://transport.merchantware.net/v4/">
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:TransactionType><span class='exampleName'>string-value</span>&lt;/ns0:TransactionType>
+  &lt;ns0:Amount><span class='exampleName'>decimal-value</span>&lt;/ns0:Amount>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:ClerkId><span class='exampleName'>string-value</span>&lt;/ns0:ClerkId>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:OrderNumber><span class='exampleName'>string-value</span>&lt;/ns0:OrderNumber>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:Dba><span class='exampleName'>string-value</span>&lt;/ns0:Dba>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:SoftwareName><span class='exampleName'>string-value</span>&lt;/ns0:SoftwareName>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:SoftwareVersion><span class='exampleName'>string-value</span>&lt;/ns0:SoftwareVersion>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:AddressLine1><span class='exampleName'>string-value</span>&lt;/ns0:AddressLine1>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:Zip><span class='exampleName'>string-value</span>&lt;/ns0:Zip>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:Cardholder><span class='exampleName'>string-value</span>&lt;/ns0:Cardholder>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:LogoLocation><span class='exampleName'>string-value</span>&lt;/ns0:LogoLocation>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:RedirectLocation><span class='exampleName'>string-value</span>&lt;/ns0:RedirectLocation>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:TransactionId><span class='exampleName'>string-value</span>&lt;/ns0:TransactionId>
+  &lt;ns0:ForceDuplicate><span class='exampleName'>boolean-value</span>&lt;/ns0:ForceDuplicate>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:CustomerCode><span class='exampleName'>string-value</span>&lt;/ns0:CustomerCode>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:PoNumber><span class='exampleName'>string-value</span>&lt;/ns0:PoNumber>
+  &lt;ns0:TaxAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:TaxAmount>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:DisplayColors>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ScreenBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:ScreenBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ContainerBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:ContainerBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ContainerFontColor><span class='exampleName'>string-value</span>&lt;/ns0:ContainerFontColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ContainerHelpFontColor><span class='exampleName'>string-value</span>&lt;/ns0:ContainerHelpFontColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ContainerBorderColor><span class='exampleName'>string-value</span>&lt;/ns0:ContainerBorderColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:LogoBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:LogoBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:LogoBorderColor><span class='exampleName'>string-value</span>&lt;/ns0:LogoBorderColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TooltipBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:TooltipBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TooltipBorderColor><span class='exampleName'>string-value</span>&lt;/ns0:TooltipBorderColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TooltipFontColor><span class='exampleName'>string-value</span>&lt;/ns0:TooltipFontColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TextboxBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:TextboxBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TextboxBorderColor><span class='exampleName'>string-value</span>&lt;/ns0:TextboxBorderColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TextboxFocusBackgroundColor><span class='exampleName'>string-value</span>&lt;/ns0:TextboxFocusBackgroundColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TextboxFocusBorderColor><span class='exampleName'>string-value</span>&lt;/ns0:TextboxFocusBorderColor>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:TextboxFontColor><span class='exampleName'>string-value</span>&lt;/ns0:TextboxFontColor>
+  &lt;/ns0:DisplayColors>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:DisplayOptions>
+    &lt;ns0:AlignLeft><span class='exampleName'>boolean-value</span>&lt;/ns0:AlignLeft>
+    &lt;ns0:NoCardNumberMask><span class='exampleName'>boolean-value</span>&lt;/ns0:NoCardNumberMask>
+    &lt;ns0:HideDetails><span class='exampleName'>boolean-value</span>&lt;/ns0:HideDetails>
+    &lt;ns0:HideDowngradeMessage><span class='exampleName'>boolean-value</span>&lt;/ns0:HideDowngradeMessage>
+    &lt;ns0:HideMessage><span class='exampleName'>boolean-value</span>&lt;/ns0:HideMessage>
+    &lt;ns0:HideTooltips><span class='exampleName'>boolean-value</span>&lt;/ns0:HideTooltips>
+    &lt;ns0:UseNativeButtons><span class='exampleName'>boolean-value</span>&lt;/ns0:UseNativeButtons>
+  &lt;/ns0:DisplayOptions>
+  &lt;!-- <span class='xmlComment'>This element must contain one of the following values:
+      Undefined
+      Keyed
+      Swiped
+      KeyedSwiped</span> -->
+  &lt;ns0:EntryMode><span class='exampleName'>string-value</span>&lt;/ns0:EntryMode>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:AuthorizationCode><span class='exampleName'>string-value</span>&lt;/ns0:AuthorizationCode>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:TerminalId><span class='exampleName'>string-value</span>&lt;/ns0:TerminalId>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:HealthCareAmountDetails>
+    &lt;ns0:CopayAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:CopayAmount>
+    &lt;ns0:ClinicalAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:ClinicalAmount>
+    &lt;ns0:DentalAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:DentalAmount>
+    &lt;ns0:HealthCareTotalAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:HealthCareTotalAmount>
+    &lt;ns0:PrescriptionAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:PrescriptionAmount>
+    &lt;ns0:VisionAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:VisionAmount>
+  &lt;/ns0:HealthCareAmountDetails>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:EnablePartialAuthorization><span class='exampleName'>boolean-value</span>&lt;/ns0:EnablePartialAuthorization>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:LoyaltyAmountDetails>
+    &lt;ns0:EligibleAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:EligibleAmount>
+  &lt;/ns0:LoyaltyAmountDetails>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:TipDetails>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:EligibleAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:EligibleAmount>
+  &lt;/ns0:TipDetails>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:Invoice>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;!-- <span class='xmlComment'>This element must contain one of the following values:
+        Unspecified
+        NotProvided
+        Provided
+        Exempt</span> -->
+    &lt;ns0:TaxIndicator><span class='exampleName'>string-value</span>&lt;/ns0:TaxIndicator>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ProductDescription><span class='exampleName'>string-value</span>&lt;/ns0:ProductDescription>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:DiscountAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:DiscountAmount>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ShippingAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:ShippingAmount>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:DutyAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:DutyAmount>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:DestinationPostalCode><span class='exampleName'>string-value</span>&lt;/ns0:DestinationPostalCode>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:DestinationCountryCode><span class='exampleName'>string-value</span>&lt;/ns0:DestinationCountryCode>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:ShipFromPostalCode><span class='exampleName'>string-value</span>&lt;/ns0:ShipFromPostalCode>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:AlternateTaxAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:AlternateTaxAmount>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:AlternateTaxRate><span class='exampleName'>decimal-value</span>&lt;/ns0:AlternateTaxRate>
+    &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+    &lt;ns0:LineItems>
+      &lt;!--<span class='xmlComment'> The following element may occur 0 or more times. </span>-->
+      &lt;ns0:LineItem>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:CommodityCode><span class='exampleName'>string-value</span>&lt;/ns0:CommodityCode>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:Description><span class='exampleName'>string-value</span>&lt;/ns0:Description>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:Upc><span class='exampleName'>string-value</span>&lt;/ns0:Upc>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:Quantity><span class='exampleName'>decimal-value</span>&lt;/ns0:Quantity>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:UnitOfMeasure><span class='exampleName'>string-value</span>&lt;/ns0:UnitOfMeasure>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:UnitCost><span class='exampleName'>decimal-value</span>&lt;/ns0:UnitCost>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:DiscountAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:DiscountAmount>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:TotalAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:TotalAmount>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:TaxAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:TaxAmount>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;ns0:ExtendedAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:ExtendedAmount>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;!-- <span class='xmlComment'>This element must contain one of the following values:
+            Unspecified
+            Credit
+            Debit</span> -->
+        &lt;ns0:DebitOrCreditIndicator><span class='exampleName'>string-value</span>&lt;/ns0:DebitOrCreditIndicator>
+        &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+        &lt;!-- <span class='xmlComment'>This element must contain one of the following values:
+            Unspecified
+            Net
+            Gross</span> -->
+        &lt;ns0:NetOrGrossIndicator><span class='exampleName'>string-value</span>&lt;/ns0:NetOrGrossIndicator>
+      &lt;/ns0:LineItem>
+    &lt;/ns0:LineItems>
+  &lt;/ns0:Invoice>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:EbtAmountDetails>
+    &lt;ns0:SnapAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:SnapAmount>
+    &lt;ns0:SnapTaxAmount><span class='exampleName'>decimal-value</span>&lt;/ns0:SnapTaxAmount>
+  &lt;/ns0:EbtAmountDetails>
+&lt;/ns0:request>
+          </pre>
+        </div>
+          </div>
+        </dd>
+          <dt><p><tt>CreateTransactionResultDset</tt></p></dt>
+          <dd>
+<p>This value is defined as a DATASET.</p>
+          <p>This value can also be expressed as a <a href='DataTypes.html#http%3A%2F%2Ftransport.merchantware.net%2Fv4%2F%3ACreateTransactionResult_element'>CreateTransactionResult</a> element in the http://transport.merchantware.net/v4/ namespace. <a href='javascript:expandDiv("example_1")'>View example</a>.</p>
+          <div id='example_1' style='display: none;'>
+        <h4>Example <span style='font-weight: normal'>(<a href='javascript:collapseDiv("example_1")'>hide</a>)</span></h4>
+        <div class='boxedText'>
+          <pre>
+&lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+&lt;ns0:CreateTransactionResult xmlns:ns0="http://transport.merchantware.net/v4/">
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:TransportKey><span class='exampleName'>string-value</span>&lt;/ns0:TransportKey>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:ValidationKey><span class='exampleName'>string-value</span>&lt;/ns0:ValidationKey>
+  &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+  &lt;ns0:Messages>
+    &lt;!--<span class='xmlComment'> The following element may occur 0 or more times. </span>-->
+    &lt;ns0:Message>
+      &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+      &lt;ns0:Field><span class='exampleName'>string-value</span>&lt;/ns0:Field>
+      &lt;!--<span class='xmlComment'> The following element is optional. </span>-->
+      &lt;ns0:Information><span class='exampleName'>string-value</span>&lt;/ns0:Information>
+    &lt;/ns0:Message>
+  &lt;/ns0:Messages>
+&lt;/ns0:CreateTransactionResult>
+          </pre>
+        </div>
+          </div>
+        </dd>
+        </dl>
+  </dd>
+</dl>
+  </dd>
+</dl>
+</body>
+</html>
